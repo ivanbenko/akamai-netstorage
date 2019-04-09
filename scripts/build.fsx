@@ -11,7 +11,7 @@ let libParams = Lib.setup <| fun p ->
         UseDotNetCliToPack = true
         NuGetFeed = 
             { p.NuGetFeed with 
-                ApiKey = environVarOrFail <| "NUGET_API_KEY" |> Some
+                ApiKey = environVarOrFail <| "KRAFTEQ_NUGET_API_KEY" |> Some
             }
     }
 

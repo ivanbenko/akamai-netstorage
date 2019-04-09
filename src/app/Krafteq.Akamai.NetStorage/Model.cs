@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
 
     public class ListResponse
     {
@@ -26,7 +27,7 @@
             this.Path = path;
         }
 
-        public string BuildAction()
+        internal string BuildAction()
         {
             return ActionBuilder.Build("list", b =>
             {
@@ -59,7 +60,7 @@
             this.Path = path;
         }
 
-        public string BuildAction()
+        internal string BuildAction()
         {
             return ActionBuilder.Build("dir", b =>
             {
@@ -80,6 +81,18 @@
                     b.Add("slash", "both");
             });
         }
+    }
+
+    public class StatRequest
+    {
+        public string Path { get; }
+
+        public StatRequest(string path)
+        {
+            this.Path = path;
+        }
+
+        internal string BuildAction() => ActionBuilder.Build("stat", b => { });
     }
 
     public class DirResponse
@@ -211,13 +224,73 @@
             new SymlinkEntry(xml.Name, xml.Target, xml.Timestamp.Map(y => y.FromEpochSeconds()));
     }
 
-    public class UploadFile
+    public class UploadFileRequest
     {
+        public string Path { get; }
 
+        public UploadFile File { get; }
+
+        public bool IndexZip { get; set; }
+
+        public UploadFileRequest(string path, UploadFile file)
+        {
+            this.Path = path ?? throw new ArgumentNullException(nameof(path));
+            this.File = file ?? throw new ArgumentNullException(nameof(file));
+        }
+
+        internal string BuildAction() => ActionBuilder.Build("upload", b =>
+        {
+            if (this.IndexZip && this.Path.EndsWith(".zip", StringComparison.InvariantCultureIgnoreCase))
+                b.Add("index-zip", "1");
+
+            if (this.File.ModifiedAt != null)
+                b.Add("mtime", b.FormatValue(this.File.ModifiedAt));
+
+            if (this.File.Size != null)
+                b.Add("size", b.FormatValue(this.File.Size.Value));
+
+            if (this.File.Md5Checksum != null)
+                b.Add("md5", b.FormatValue(this.File.Md5Checksum));
+
+            if (this.File.Sha1Checksum != null)
+                b.Add("sha1", b.FormatValue(this.File.Sha1Checksum));
+                
+            if (this.File.Sha256Checksum != null)
+                b.Add("sha256", b.FormatValue(this.File.Sha256Checksum));
+        });
     }
 
-    public class StatResponse
+    public class DeleteRequest
     {
+        public string Path { get; }
 
+        public DeleteRequest(string path)
+        {
+            this.Path = path;
+        }
+
+        internal string BuildAction() => ActionBuilder.Build("delete", b =>
+        {
+        });
+    }
+
+    public class UploadFile
+    {
+        public Stream Stream { get; }
+
+        public long? Size { get; set; }
+
+        public byte[] Md5Checksum { get; set; }
+
+        public byte[] Sha1Checksum { get; set; }
+
+        public byte[] Sha256Checksum { get; set; }
+
+        public DateTime? ModifiedAt { get; set; }
+
+        public UploadFile(Stream stream)
+        {
+            this.Stream = stream ?? throw new ArgumentNullException(nameof(stream));
+        }
     }
 }

@@ -29,7 +29,7 @@
                 request.Path);
 
             this.SetHeaders(request, httpRequest);
-
+            
             var httpResponse = await this.httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead)
                 .ConfigureAwait(false);
 
