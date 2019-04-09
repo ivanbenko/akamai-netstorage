@@ -1,9 +1,8 @@
-﻿using Xunit;
-
-namespace Akamai.NetStorage.Tests
+﻿namespace Krafteq.Akamai.NetStorage.Tests
 {
     using System.Xml.Linq;
     using FluentAssertions;
+    using Xunit;
 
     public class FileEntryXmlTests
     {

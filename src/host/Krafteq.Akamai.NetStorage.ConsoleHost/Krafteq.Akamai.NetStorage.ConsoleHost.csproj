@@ -4,9 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\app\Akamai.NetStorage\Akamai.NetStorage.csproj" />
+    <ProjectReference Include="..\..\app\Krafteq.Akamai.NetStorage\Krafteq.Akamai.NetStorage.csproj" />
   </ItemGroup>
 
 </Project>

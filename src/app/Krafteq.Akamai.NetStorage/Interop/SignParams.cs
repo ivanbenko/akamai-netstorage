@@ -1,4 +1,4 @@
-﻿namespace Akamai.NetStorage.Interop
+﻿namespace Krafteq.Akamai.NetStorage.Interop
 {
     using System;
 

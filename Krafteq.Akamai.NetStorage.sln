@@ -16,11 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Solution Items", "00_Sol
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10_Test", "10_Test", "{7A836C96-578B-4A66-9486-C5C38FC2BB75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akamai.NetStorage", "src\app\Akamai.NetStorage\Akamai.NetStorage.csproj", "{D0FB5450-EEF8-49B6-97D4-8FDA67EF7CDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Krafteq.Akamai.NetStorage", "src\app\Krafteq.Akamai.NetStorage\Krafteq.Akamai.NetStorage.csproj", "{D0FB5450-EEF8-49B6-97D4-8FDA67EF7CDF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akamai.NetStorage.Tests", "src\test\Akamai.NetStorage.Tests\Akamai.NetStorage.Tests.csproj", "{697AA59B-8E95-41A0-B7A8-908D868EB06E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Krafteq.Akamai.NetStorage.Tests", "src\test\Krafteq.Akamai.NetStorage.Tests\Krafteq.Akamai.NetStorage.Tests.csproj", "{697AA59B-8E95-41A0-B7A8-908D868EB06E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akamai.NetStorage.ConsoleHost", "src\host\Akamai.NetStorage.ConsoleHost\Akamai.NetStorage.ConsoleHost.csproj", "{AFBBCF54-37F1-413F-8CE4-84A3F6F93AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Krafteq.Akamai.NetStorage.ConsoleHost", "src\host\Krafteq.Akamai.NetStorage.ConsoleHost\Krafteq.Akamai.NetStorage.ConsoleHost.csproj", "{AFBBCF54-37F1-413F-8CE4-84A3F6F93AF3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_Host", "05_Host", "{B77A9F94-A61A-48DA-B306-0E7AF3D56F84}"
 EndProject

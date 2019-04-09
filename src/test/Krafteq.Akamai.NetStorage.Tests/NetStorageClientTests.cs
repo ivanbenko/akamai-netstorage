@@ -1,4 +1,4 @@
-﻿namespace Akamai.NetStorage.Tests
+﻿namespace Krafteq.Akamai.NetStorage.Tests
 {
     using System;
     using FluentAssertions;

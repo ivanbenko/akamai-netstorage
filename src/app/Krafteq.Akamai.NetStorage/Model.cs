@@ -1,8 +1,7 @@
-﻿namespace Akamai.NetStorage
+﻿namespace Krafteq.Akamai.NetStorage
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
 
     public class ListResponse
     {

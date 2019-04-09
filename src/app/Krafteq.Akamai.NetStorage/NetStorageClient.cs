@@ -1,4 +1,4 @@
-﻿namespace Akamai.NetStorage
+﻿namespace Krafteq.Akamai.NetStorage
 {
     using System;
     using System.Linq;

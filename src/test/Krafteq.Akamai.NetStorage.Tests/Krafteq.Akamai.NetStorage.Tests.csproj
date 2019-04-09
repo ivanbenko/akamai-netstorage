@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\app\Akamai.NetStorage\Akamai.NetStorage.csproj" />
+    <ProjectReference Include="..\..\app\Krafteq.Akamai.NetStorage\Krafteq.Akamai.NetStorage.csproj" />
   </ItemGroup>
 
 </Project>
