@@ -31,6 +31,13 @@
 
             var dirResult = this.sut.ListAsync(new ListRequest(this.apiParams.TestFolder)).Result;
             result.Should().NotBeNull();
+
+            var fullPath = this.sut.BuildFullPath(this.apiParams.TestFolder);
+
+            this.sut.ListAsync(new ListRequest(this.apiParams.TestFolder)
+            {
+                End = new Uri(fullPath).LocalPath + "0"
+            }).Wait();
         }
 
         [Fact]
@@ -44,7 +51,9 @@
             this.sut.UploadAsync(new UploadFileRequest(path, new UploadFile(new MemoryStream(content)))).Wait();
 
             var testEntries = this.sut.DirAsync(new DirectoryRequest(this.apiParams.TestFolder)).Result;
-            testEntries.Entries.Where(x => x.File?.Name == fileName).Should().NotBeEmpty();
+            var testFileEntry = testEntries.Entries.FirstOrDefault(x => x.File?.Name == fileName);
+            testFileEntry.Should().NotBeNull();
+            testFileEntry.File.Size.Should().Be(content.Length);
 
             this.sut.DeleteAsync(new DeleteRequest(path)).Wait();
 

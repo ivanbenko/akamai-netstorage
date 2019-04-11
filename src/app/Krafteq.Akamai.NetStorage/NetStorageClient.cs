@@ -137,6 +137,8 @@
             throw new NotImplementedException();
         }
 
+        public string BuildFullPath(string path) => this.fullPathFormatter.Format(path);
+
         public void Dispose()
         {
             this.interop.Dispose();

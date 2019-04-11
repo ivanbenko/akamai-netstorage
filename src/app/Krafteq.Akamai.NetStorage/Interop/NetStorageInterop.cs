@@ -28,6 +28,11 @@
                 new HttpMethod(request.Method),
                 request.Path);
 
+            if (request.UploadStream != null)
+            {
+                httpRequest.Content = new StreamContent(request.UploadStream);
+            }
+
             this.SetHeaders(request, httpRequest);
             
             var httpResponse = await this.httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead)
